@@ -19,7 +19,11 @@
       name = "home-env";
       paths = [
         unstable.neovim
-        rofi-wayland
+        (rofi-wayland.override { 
+             plugins = [
+                (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
+             ]; 
+           })
         waybar
         swaynotificationcenter
         nodejs_23
@@ -29,6 +33,7 @@
         texliveFull
         pandoc
         tig
+        bitwarden-desktop
         btop
 
         (writeScriptBin "nix-rebuild" ''
