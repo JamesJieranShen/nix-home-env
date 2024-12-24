@@ -21,6 +21,15 @@
         unstable.neovim
         rofi-wayland
         waybar
+        swaynotificationcenter
+        nodejs_23
+        stow
+        wlogout
+        hyprpaper
+        texliveFull
+        pandoc
+        tig
+        btop
 
         (writeScriptBin "nix-rebuild" ''
           #!${stdenv.shell}
