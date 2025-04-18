@@ -54,6 +54,7 @@
         grimblast
         swappy
         slurp
+        ranger
 
         (writeScriptBin "nix-rebuild" ''
           #!${stdenv.shell}
