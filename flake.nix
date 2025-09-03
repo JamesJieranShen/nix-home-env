@@ -18,43 +18,18 @@
     defaultPackage.x86_64-linux =  with import nixpkgs { system = "x86_64-linux"; overlays = [ overlay-unstable ]; config = { allowUnfree = true; }; }; buildEnv {
       name = "home-env";
       paths = [
-        (unstable.neovim.override {
-          withPython3 = true;
-          extraPython3Packages = p: with p; [
-               pynvim 
-               jupyter_client 
-               cairosvg 
-               plotly 
-               kaleido 
-               pnglatex 
-               pyperclip 
-               nbformat 
-               pillow 
-               requests 
-               websocket-client
-               jupytext
-          ];
-        })
         (rofi-wayland.override { 
              plugins = [
                 (rofi-calc.override { rofi-unwrapped = rofi-wayland-unwrapped; })
              ]; 
            })
-        waybar
         swaynotificationcenter
-        nodejs_23
-        stow
         wlogout
-        hyprpaper
-        texliveFull
-        pandoc
-        tig
-        bitwarden-desktop
-        btop
-        grimblast
         swappy
         slurp
-        ranger
+        hyprpaper
+        waybar
+        grimblast
 
         (writeScriptBin "nix-rebuild" ''
           #!${stdenv.shell}
